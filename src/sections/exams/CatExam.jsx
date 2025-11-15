@@ -106,6 +106,68 @@ const CatExam = () => {
     },
   ];
 
+  // CAT Prep Slider States
+  const catPrepCards = [
+    {
+      title: "For VARC Section",
+      points: [
+        "Read newspapers, magazines, and articles daily",
+        "Practice RC passages from diverse topics",
+        "Build vocabulary consistently",
+        "Aim for 2–3 minutes per question",
+      ],
+    },
+    {
+      title: "For DILR Section",
+      points: [
+        "Practice puzzles and data sets regularly",
+        "Identify solvable sets quickly",
+        "Focus on accuracy more than attempts",
+        "Improve speed through consistent practice",
+      ],
+    },
+    {
+      title: "For QA Section",
+      points: [
+        "Master fundamental concepts",
+        "Practice mental calculations & shortcuts",
+        "Focus on arithmetic & algebra",
+        "Practice previous year questions",
+      ],
+    },
+    {
+      title: "General Strategy",
+      points: [
+        "Take full-length mock tests regularly",
+        "Analyze your performance after each mock",
+        "Maintain a mistake journal",
+        "Stay consistent with your preparation",
+      ],
+    },
+  ];
+
+  const [catPrepCurrent, setCatPrepCurrent] = useState(0);
+  const [catPrepPaused, setCatPrepPaused] = useState(false);
+
+  const catPrepNext = () =>
+    setCatPrepCurrent((prev) => (prev + 1) % catPrepCards.length);
+
+  const catPrepPrev = () =>
+    setCatPrepCurrent((prev) =>
+      prev === 0 ? catPrepCards.length - 1 : prev - 1
+    );
+
+  // Auto Slide every 3s (pause on hover)
+  useEffect(() => {
+    if (catPrepPaused) return;
+
+    const interval = setInterval(() => {
+      setCatPrepCurrent((prev) => (prev + 1) % catPrepCards.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [catPrepPaused]);
+
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -328,69 +390,95 @@ const CatExam = () => {
         </div>
       </div>
 
-      {/* CAT Prep Hero Banner */}
+      {/* CAT Prep Banner */}
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="
-    relative overflow-hidden rounded-2xl shadow-2xl 
-   bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)] border border-gray-200
-  "
+      relative overflow-hidden rounded-2xl shadow-2xl 
+      bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]
+      border border-gray-800
+    "
         >
-          {/* Floating Gradient Orbs (Background Décor) */}
-          <div
+          {/* Floating Background Orbs */}
+          <motion.div
+            animate={{ x: [0, 20, 0], y: [0, -20, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -top-10 -left-10 w-40 h-40 rounded-full 
       bg-[radial-gradient(circle,#E16B3A,#B14820)] opacity-20 blur-2xl"
-          ></div>
-          <div
+          />
+
+          <motion.div
+            animate={{ x: [0, -20, 0], y: [0, 20, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full 
       bg-[radial-gradient(circle,#000000,#392e29)] opacity-20 blur-2xl"
-          ></div>
+          />
 
           <div className="relative flex flex-col md:flex-row items-center justify-between px-8 py-12">
             {/* LEFT SIDE */}
-            <div className="md:w-1/2 space-y-6">
-              {/* Floating stacked gradient blocks */}
-              <div className="space-y-4">
-                <div
-                  className="
+            <div className="md:w-1/2 mb-6 md:mb-0 space-y-4">
+              {/* KICKSTART */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                whileHover={{ y: -6 }}
+                className="
             inline-block px-8 py-4 rounded-xl shadow-lg 
             bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]
-            border border-[#4a3c38] transform hover:-translate-y-1 transition-all
+            border border-[#4a3c38] transition-all
           "
-                >
-                  <h3 className="text-3xl md:text-4xl text-white font-extrabold tracking-wide">
-                    KICKSTART
-                  </h3>
-                </div>
+              >
+                <h3 className="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
+                  KICKSTART
+                </h3>
+              </motion.div>
 
-                <div
-                  className="
+              {/* YOUR */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.35, duration: 0.6 }}
+                whileHover={{ y: -6 }}
+                className="
             inline-block px-8 py-4 rounded-xl shadow-lg ml-6
             bg-[linear-gradient(90deg,#E16B3A,#B14820)]
-            transform hover:-translate-y-1 transition-all
+            transition-all
           "
-                >
-                  <h3 className="text-3xl md:text-4xl text-white font-extrabold">
-                    YOUR
-                  </h3>
-                </div>
+              >
+                <h3 className="text-2xl md:text-3xl font-extrabold text-white">
+                  YOUR
+                </h3>
+              </motion.div>
 
-                <div
-                  className="
+              {/* CAT PREP */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                whileHover={{ y: -6 }}
+                className="
             inline-block px-8 py-4 rounded-xl shadow-lg
             bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]
-            border border-[#4a3c38] transform hover:-translate-y-1 transition-all
+            border border-[#4a3c38] transition-all
           "
-                >
-                  <h3 className="text-4xl md:text-5xl text-white font-extrabold tracking-wide">
-                    CAT PREP
-                  </h3>
-                </div>
-              </div>
+              >
+                <h3 className="text-3xl md:text-4xl font-extrabold text-white tracking-wide">
+                  CAT PREP
+                </h3>
+              </motion.div>
             </div>
 
             {/* RIGHT SIDE */}
-            <div className="md:w-1/2 mt-10 md:mt-0 text-center md:text-right">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6, duration: 0.7 }}
+              className="md:w-1/2 text-center md:text-right"
+            >
               <h2 className="text-3xl md:text-4xl font-extrabold text-gray-300 leading-tight mb-6">
                 Access our{" "}
                 <span className="bg-[linear-gradient(90deg,#E16B3A,#B14820)] bg-clip-text text-transparent">
@@ -400,18 +488,21 @@ const CatExam = () => {
                 learning portal now!
               </h2>
 
-              <button
+              {/* Button Animation */}
+              <motion.button
+                whileHover={{ scale: 1.07 }}
+                whileTap={{ scale: 0.96 }}
                 className="
-          py-4 px-16 rounded-full text-xl font-bold text-white shadow-xl
-          bg-[linear-gradient(90deg,#E16B3A,#B14820)]
-          hover:scale-[1.07] hover:shadow-2xl transition-all
-        "
+            py-4 px-12 md:px-16 rounded-full text-xl font-bold text-white shadow-xl
+            bg-[linear-gradient(90deg,#E16B3A,#B14820)]
+            transition-all
+          "
               >
                 Click Here
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* CAT 2025 Courses Section */}
@@ -1191,46 +1282,47 @@ const CatExam = () => {
           </div>
         </div>
       </div>
+      
       <SeparatorLine />
-      {/* Preparation Tips */}
+
+      {/* CAT Preparation Strategy */}
       <div className="w-full bg-black py-12">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
             CAT 2025 Preparation Strategy
           </h2>
 
-          {/* 4 Cards */}
-          <div className="grid md:grid-cols-2 gap-6">
+          {/* ===================== DESKTOP VIEW ===================== */}
+          <div className="hidden md:grid md:grid-cols-2 gap-6">
             {/* VARC */}
             <div className="relative">
-              {/* Left Accent Line */}
-
               <div
-                className="
-            ml-2 p-6 rounded-xl shadow-lg border-l-4 border-[#E16B3A]
-            bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]
-          "
+                className="ml-2 p-6 rounded-xl shadow-lg border-l-4 border-[#E16B3A]
+            bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]"
               >
-                <h3 className="text-xl font-bold mb-4 bg-clip-text text-transparent bg-[linear-gradient(90deg,#E16B3A,#B14820)]">
+                <h3
+                  className="text-xl font-bold mb-4 bg-clip-text text-transparent
+            bg-[linear-gradient(90deg,#E16B3A,#B14820)]"
+                >
                   For VARC Section
                 </h3>
 
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Read newspapers, magazines, and articles daily</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Read
+                    newspapers, magazines, and articles daily
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Practice RC passages from diverse topics</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Practice RC
+                    passages from diverse topics
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Build vocabulary consistently</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Build
+                    vocabulary consistently
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Aim for 2–3 minutes per question</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Aim for 2–3
+                    minutes per question
                   </li>
                 </ul>
               </div>
@@ -1239,31 +1331,32 @@ const CatExam = () => {
             {/* DILR */}
             <div className="relative">
               <div
-                className="
-            ml-2 p-6 rounded-xl shadow-lg border-l-4 border-[#E16B3A]
-            bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]
-          "
+                className="ml-2 p-6 rounded-xl shadow-lg border-l-4 border-[#E16B3A]
+            bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]"
               >
-                <h3 className="text-xl font-bold mb-4 bg-clip-text text-transparent bg-[linear-gradient(90deg,#E16B3A,#B14820)]">
+                <h3
+                  className="text-xl font-bold mb-4 bg-clip-text text-transparent
+            bg-[linear-gradient(90deg,#E16B3A,#B14820)]"
+                >
                   For DILR Section
                 </h3>
 
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Practice puzzles and data sets regularly</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Practice
+                    puzzles and data sets regularly
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Identify solvable sets quickly</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Identify
+                    solvable sets quickly
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Focus on accuracy more than attempts</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Focus on
+                    accuracy more than attempts
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Improve speed through consistent practice</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Improve speed
+                    through consistent practice
                   </li>
                 </ul>
               </div>
@@ -1272,31 +1365,32 @@ const CatExam = () => {
             {/* QA */}
             <div className="relative">
               <div
-                className="
-            ml-2 p-6 rounded-xl shadow-lg border-l-4 border-[#E16B3A]
-            bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]
-          "
+                className="ml-2 p-6 rounded-xl shadow-lg border-l-4 border-[#E16B3A]
+            bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]"
               >
-                <h3 className="text-xl font-bold mb-4 bg-clip-text text-transparent bg-[linear-gradient(90deg,#E16B3A,#B14820)]">
+                <h3
+                  className="text-xl font-bold mb-4 bg-clip-text text-transparent
+            bg-[linear-gradient(90deg,#E16B3A,#B14820)]"
+                >
                   For QA Section
                 </h3>
 
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Master fundamental concepts</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Master
+                    fundamental concepts
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Practice mental calculations & shortcuts</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Practice
+                    mental calculations & shortcuts
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Focus on arithmetic & algebra</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Focus on
+                    arithmetic & algebra
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Practice previous year questions</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Practice
+                    previous year questions
                   </li>
                 </ul>
               </div>
@@ -1305,47 +1399,115 @@ const CatExam = () => {
             {/* General Strategy */}
             <div className="relative">
               <div
-                className="
-            ml-2 p-6 rounded-xl shadow-lg border-l-4 border-[#E16B3A]
-            bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]
-          "
+                className="ml-2 p-6 rounded-xl shadow-lg border-l-4 border-[#E16B3A]
+            bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]"
               >
-                <h3 className="text-xl font-bold mb-4 bg-clip-text text-transparent bg-[linear-gradient(90deg,#E16B3A,#B14820)]">
+                <h3
+                  className="text-xl font-bold mb-4 bg-clip-text text-transparent
+            bg-[linear-gradient(90deg,#E16B3A,#B14820)]"
+                >
                   General Strategy
                 </h3>
 
                 <ul className="space-y-3 text-gray-300">
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Take full-length mock tests regularly</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Take
+                    full-length mock tests regularly
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Analyze your performance after each mock</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Analyze your
+                    performance after each mock
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Maintain a mistake journal</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Maintain a
+                    mistake journal
                   </li>
                   <li className="flex items-start">
-                    <span className="text-[#E16B3A] mr-2">•</span>
-                    <span>Stay consistent with your preparation</span>
+                    <span className="text-[#E16B3A] mr-2">•</span> Stay
+                    consistent with your preparation
                   </li>
                 </ul>
               </div>
             </div>
           </div>
 
-          {/* Pro Tip Box */}
-          <div className="mt-8 relative">
-            <div className="ml-2 p-6 rounded-xl border-l-4 border-[#E16B3A] bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]">
-              <h4 className="font-bold mb-2 text-white">Pro Tip:</h4>
-              <p className="text-gray-300">
-                Start your CAT preparation at least 6–8 months before the exam.
-                Build strong fundamentals first, then increase the difficulty
-                level. Consistent mock tests are the key to success.
-              </p>
+          {/* ===================== MOBILE SLIDER ===================== */}
+          <div
+            className="md:hidden relative max-w-md mx-auto mt-6"
+            onMouseEnter={() => setCatPrepPaused(true)}
+            onMouseLeave={() => setCatPrepPaused(false)}
+          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={catPrepCurrent}
+                initial={{ opacity: 0, x: 60 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -60 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="w-full inset-0"
+              >
+                <div
+                  className="ml-2 p-6 rounded-xl shadow-lg border-l-4 border-[#E16B3A]
+            bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]"
+                >
+                  <h3
+                    className="text-xl font-bold mb-4 bg-clip-text text-transparent
+              bg-[linear-gradient(90deg,#E16B3A,#B14820)]"
+                  >
+                    {catPrepCards[catPrepCurrent].title}
+                  </h3>
+
+                  <ul className="space-y-3 text-gray-300">
+                    {catPrepCards[catPrepCurrent].points.map((p, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="text-[#E16B3A] mr-2">•</span>
+                        <span>{p}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-2 mt-3">
+              {catPrepCards.map((_, i) => (
+                <div
+                  key={i}
+                  onClick={() => setCatPrepCurrent(i)}
+                  className={`w-3 h-3 rounded-full ${
+                    catPrepCurrent === i ? "bg-[#E16B3A]" : "bg-gray-600"
+                  }`}
+                ></div>
+              ))}
             </div>
+
+            {/* Arrows */}
+            <button
+              onClick={catPrepPrev}
+              className="absolute top-1/2 left-2 -translate-y-1/2 p-2 text-white bg-white/20 rounded-full backdrop-blur"
+            >
+              ‹
+            </button>
+            <button
+              onClick={catPrepNext}
+              className="absolute top-1/2 right-2 -translate-y-1/2 p-2 text-white bg-white/20 rounded-full backdrop-blur"
+            >
+              ›
+            </button>
+          </div>
+
+          {/* PRO TIP BOX */}
+          <div
+            className="mt-8 ml-2 p-6 rounded-xl border-l-4 border-[#E16B3A]
+        bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]"
+          >
+            <h4 className="font-bold mb-2 text-white">Pro Tip:</h4>
+            <p className="text-gray-300">
+              Start your CAT preparation at least 6–8 months before the exam.
+              Build strong fundamentals first, then increase the difficulty.
+              Consistent mock tests are the key to success.
+            </p>
           </div>
         </div>
       </div>

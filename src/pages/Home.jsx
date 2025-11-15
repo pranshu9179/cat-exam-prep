@@ -266,7 +266,7 @@ export default function Home() {
     <>
       {/* ✅ HERO SECTION */}
       <section className="relative bg-[#000000] ">
-        <div className="relative z-10 px-4 py-12 sm:py-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:py-20 xl:py-28 lg:grid lg:grid-cols-2">
+        <div className="relative z-10 px-4 py-12 sm:py-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:py-20 xl:py-16 lg:grid lg:grid-cols-2">
           <div className="lg:pr-8">
             <div className="max-w-md mx-auto sm:max-w-lg lg:mx-0 ">
             <div className="md:block hidden">
@@ -372,7 +372,6 @@ export default function Home() {
 
         {/* ✅ RIGHT SIDE - CHOOSE ONE SLIDER VERSION */}
         <div className="pb-8 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:flex lg:items-center lg:pb-0 lg:pr-8">
-          {/* Use either Slider (single card) or CardSlider (multiple cards) */}
           <Slider />
           {/* <CardSlider /> */}
         </div>
