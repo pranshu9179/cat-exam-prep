@@ -404,7 +404,7 @@ import {
 import { AnimatePresence, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-export const ShiftingDropDown = () => {
+const ShiftingDropDown = () => {
   const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -1843,3 +1843,5 @@ const TABS = [
   { title: "Courses", Component: Courses },
   { title: "About Us", Component: null },
 ].map((n, idx) => ({ ...n, id: idx + 1 }));
+
+export default ShiftingDropDown;
