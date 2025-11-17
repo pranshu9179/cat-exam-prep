@@ -1,10 +1,8 @@
-import React from 'react'
-import  {ShiftingDropDown}  from '../sections/ShiftingDropDown'
+import React from "react";
+import ShiftingDropDown from "../sections/ShiftingDropDown";
 
 const Header = () => {
-  return (
-    <ShiftingDropDown/>
-  )
-}
+  return <ShiftingDropDown />;
+};
 
-export default Header
+export default Header;
