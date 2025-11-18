@@ -490,7 +490,7 @@ function BackCard({ course, setExpandedCard, handleWhatsApp }) {
       {/* FOOTER BUTTONS */}
       <div className="absolute bottom-0 left-0 right-0 grid grid-cols-2 gap-5 p-4 bg-black/30">
         <button className="bg-white text-[#E16B3A] font-bold py-2 rounded-xl"
-        onClick={()=>{Navigate("/coursedetail")}}>
+        onClick={()=>{navigate("/coursedetail")}}>
           <a>View Details</a>
         </button>
 
