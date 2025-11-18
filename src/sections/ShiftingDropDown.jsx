@@ -572,7 +572,7 @@ const MobileMenuContent = ({ onClose }) => {
                 ].map((item) => (
                   <motion.button
                     key={item.name}
-                    onClick={() => go("#")}
+                    onClick={() => {onClose(); navigate("/coursedetail")}}
                     variants={itemVariants}
                     className="w-full flex items-center gap-3 
                                bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]
@@ -772,6 +772,7 @@ const Blog = () => {
 };
 
 const Courses = () => {
+    const navigate = useNavigate();
   return (
     <div>
       <div className="grid grid-cols-2 gap-2">
@@ -800,7 +801,8 @@ const Courses = () => {
         </a>
       </div>
 
-      <button className="ml-auto mt-4 flex items-center gap-1 text-sm text-cyan-300">
+      <button className="ml-auto mt-4 flex items-center gap-1 text-sm text-cyan-300"
+      onClick={()=>{navigate('/coursedetail')}}>
         <span>View more</span>
         <FiArrowRight />
       </button>
@@ -809,7 +811,7 @@ const Courses = () => {
 };
 
 const TABS = [
-  { title: "Products", Component: Products },
+  // { title: "Products", Component: Products },
   { title: "Exam", Component: Exam },
   { title: "Blog", Component: Blog },
   { title: "Courses", Component: Courses },

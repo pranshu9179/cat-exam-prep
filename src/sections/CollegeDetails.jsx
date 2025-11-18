@@ -75,7 +75,7 @@ const CollegeDetails = () => {
             {exams.map((exam) => (
               <button
                 key={exam.id}
-                onClick={() => handleExamClick(exam.route)}
+                // onClick={() => handleExamClick(exam.route)}
                 className="px-6 py-3 border-2 border-[#E16B3A] text-[#E16B3A] rounded-full 
                 font-semibold hover:bg-[#E16B3A] hover:text-white transition-all"
               >
@@ -111,7 +111,7 @@ const CollegeDetails = () => {
                 {colleges.map((college) => (
                   <button
                     key={college.id}
-                    onClick={() => handleCollegeClick(college.route)}
+                    // onClick={() => handleCollegeClick(college.route)}
                     className="px-6 py-3 border-2 border-[#E16B3A] text-[#E16B3A] rounded-full 
                     hover:bg-[#E16B3A] hover:text-white transition-all"
                   >

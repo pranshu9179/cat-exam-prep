@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { PlayCircle, BookOpen, Star, ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 // Dummy data for courses
 const courses = [
@@ -68,6 +69,7 @@ const videos = [
 ];
 
 const AllCoursesPage = () => {
+    const navigate = useNavigate();
   return (
     <div className="bg-gray-50 text-gray-800">
       {/* 🌟 Hero Section */}
@@ -108,7 +110,8 @@ const AllCoursesPage = () => {
                 <h3 className="text-xl font-semibold">{course.title}</h3>
                 <p className="text-gray-600 text-sm">{course.desc}</p>
                 <div className="flex items-center justify-between pt-3">
-                  <button className="flex items-center gap-2 text-indigo-600 font-medium hover:text-indigo-800">
+                  <button className="flex items-center gap-2 text-indigo-600 font-medium hover:text-indigo-800"
+                  onClick={()=> {onclose(); navigate("/coursedetail")}}>
                     View Course <ArrowRight size={18} />
                   </button>
                   <div className="flex text-yellow-400">

@@ -183,9 +183,9 @@ const HomeAbout = () => {
             {cards.map((card) => (
               <div
                 key={card.id}
-                onClick={() => handleCardClick(card.route)}
+                // onClick={() => handleCardClick(card.route)}
                 className="
-    relative rounded-lg p-6 cursor-pointer group 
+    relative rounded-lg p-6  group 
     transition-all duration-300
     bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]
   "
