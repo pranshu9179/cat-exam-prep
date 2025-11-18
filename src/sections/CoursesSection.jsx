@@ -18,6 +18,7 @@ import mocks from "/src/assets/public/ew0V5jf.jpg";
 import nmat from "/src/assets/public/ew0V5jf.jpg";
 import noncat from "/src/assets/public/ew0V5jf.jpg";
 import pro from "/src/assets/public/ew0V5jf.jpg";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function CoursesSection() {
   const [expandedCard, setExpandedCard] = useState(null);
@@ -450,6 +451,7 @@ function FrontCard({ course, hoveredCard, setHoveredCard, setExpandedCard }) {
 /* ================================================================================= */
 
 function BackCard({ course, setExpandedCard, handleWhatsApp }) {
+    const navigate = useNavigate();
   return (
     <div className="h-full rounded-3xl shadow-2xl overflow-hidden relative border border-[#5d4b43] bg-[radial-gradient(144.43%_144.43%_at_50%_-25.21%,#392e29_0%,#000000_100%)]">
       {/* Close Button */}
@@ -487,8 +489,9 @@ function BackCard({ course, setExpandedCard, handleWhatsApp }) {
 
       {/* FOOTER BUTTONS */}
       <div className="absolute bottom-0 left-0 right-0 grid grid-cols-2 gap-5 p-4 bg-black/30">
-        <button className="bg-white text-[#E16B3A] font-bold py-2 rounded-xl">
-          <a href="/coursedetail">View Details</a>
+        <button className="bg-white text-[#E16B3A] font-bold py-2 rounded-xl"
+        onClick={()=>{Navigate("/coursedetail")}}>
+          <a>View Details</a>
         </button>
 
         <button
