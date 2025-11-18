@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Courses from "./pages/Courses";
 import Blog from "./pages/Blog";
-import Contact from "./pages/Contact";
+import Contact from "./pages/ContactUs";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import SeparatorLine from "./components/SepratorLine";
@@ -14,6 +14,8 @@ import MbaExam from "./sections/exams/MbaExam";
 import XatExam from "./sections/exams/XatExam";
 import XgmtExam from "./sections/exams/XgmtExam";
 import Tuitions from "./sections/exams/Tuitions ";
+import ContactUs from "./pages/ContactUs";
+import ChatBot from "./components/ChatBot";
 
 export default function App() {
   return (
@@ -24,7 +26,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact-us" element={<ContactUs/>} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/coursedetail" element={<CourseDetail />} />
           <Route path="/cat-Exam" element={<CatExam/>}/>
@@ -36,6 +38,7 @@ export default function App() {
         </Routes>
       </main>
       <SeparatorLine />
+      <ChatBot/>
       <Footer />
     </div>
   );

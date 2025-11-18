@@ -150,7 +150,7 @@ const Tuitions = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* PREMIUM TUITIONS SECTION (XAT THEME) */}
+      {/* PREMIUM TUITIONS SECTION  */}
       <section className="w-full bg-black py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Heading */}
@@ -266,7 +266,7 @@ const Tuitions = () => {
                     <img
                       src={slides[currentSlide].image}
                       alt={slides[currentSlide].alt}
-                      className="w-full h-80 object-cover"
+                      className="w-full h-80 object-fit"
                     />
                   </motion.div>
                 </AnimatePresence>
@@ -365,8 +365,10 @@ const Tuitions = () => {
               <div className="space-y-4">
                 {/* Radio Buttons */}
                 <div>
-                  <p className="text-gray-300 font-semibold mb-3">Are you a</p>
-                  <div className="flex gap-4">
+                  <p className="text-gray-300 font-semibold mb-3 ">
+                    Are you a :-
+                  </p>
+                  <div className="flex gap-4 ">
                     <label className="flex items-center cursor-pointer text-gray-300">
                       <input
                         type="radio"
@@ -425,7 +427,13 @@ const Tuitions = () => {
                   >
                     <span className="flex items-center gap-2">
                       <i className="fa-solid fa-book text-gray-300"></i>
-                      {selectedClass || "I'm looking for"}
+                      {selectedClass ? (
+                        selectedClass
+                      ) : (
+                        <span className="flex items-center gap-2">
+                          I'm looking for <ChevronDown />
+                        </span>
+                      )}
                     </span>
                     <i
                       className={`fa-solid fa-chevron-${
@@ -480,7 +488,13 @@ const Tuitions = () => {
                   >
                     <span className="flex items-center gap-2">
                       <i className="fa-solid fa-layer-group text-gray-300"></i>
-                      {selectedLearning || "Preferred mode of learning"}
+                      <span className="flex items-center gap-2">
+                        {selectedLearning || (
+                          <>
+                            Preferred mode of learning <ChevronDown />
+                          </>
+                        )}
+                      </span>
                     </span>
                     <i
                       className={`fa-solid fa-chevron-${
@@ -582,7 +596,7 @@ const Tuitions = () => {
               </p>
             </div>
           </div>
-
+          <SeparatorLine />
           {/* Comprehensive Preparation */}
           <div className="mt-16">
             {/* Heading */}
@@ -611,7 +625,7 @@ const Tuitions = () => {
               border border-[#3a322e] shadow-lg
             
               hover:border-[#E16B3A]
-              transition-all
+              transition-all 
             "
                 >
                   <div className="flex justify-center mb-4">
@@ -686,7 +700,7 @@ const Tuitions = () => {
           </div>
         </div>
       </section>
-      
+
       <SeparatorLine />
       {/* What Makes Us Different – XAT Premium Dark Theme */}
       <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-black text-white">
@@ -753,7 +767,7 @@ const Tuitions = () => {
               py-3 px-8 rounded-lg transition-all shadow-lg
             "
                 >
-                  Sign In
+                  Log In
                 </button>
 
                 {/* Sign Up */}

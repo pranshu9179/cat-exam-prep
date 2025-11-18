@@ -109,7 +109,7 @@ const HomeBottom = () => {
             <img
               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1000&fit=crop"
               alt="Student with phone showing Career Launcher app"
-              className="w-full h-auto object-contain  rounded-3xl" 
+              className="w-auto h-135 object-cover  rounded-3xl" 
             />
           </div>
         </div>

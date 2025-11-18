@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { BookOpen, ExternalLink, ArrowRight, Search } from "lucide-react";
 import { Link } from "react-router-dom";
+import hero1 from "../assets/public/ew0V5jf.jpg";
 
-/* ✅ Custom Scrollbar (already your code) */
+/* ✅ Custom Scrollbar */
 const styles = `
 .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(96,165,250,.7); border-radius: 10px; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #E16B3A; border-radius: 10px; }
 .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
 `;
 
@@ -14,7 +15,7 @@ const categories = ["All", "IIT-JEE", "Career Guide", "Chemistry"];
 const postsData = [
   {
     slug: "jee-mains-exam-pattern-2026",
-    img: "/src/assets/public/ew0V5jf.jpg",
+    img: hero1,
     title: "JEE Mains Exam Pattern 2026 — Marking Scheme & Important Dates",
     category: "IIT-JEE",
     excerpt:
@@ -24,7 +25,7 @@ const postsData = [
   },
   {
     slug: "top-10-engineering-courses-high-salary",
-    img: "/src/assets/public/ew0V5jf.jpg",
+    img: hero1,
     title: "Top 10 Engineering Courses With Highest Salary in India",
     category: "Career Guide",
     excerpt:
@@ -34,7 +35,7 @@ const postsData = [
   },
   {
     slug: "jee-main-chemistry-strategy-2026",
-    img: "/src/assets/public/ew0V5jf.jpg",
+    img: hero1,
     title: "JEE Main Chemistry Strategy 2026 — Preparation Tips",
     category: "Chemistry",
     excerpt: "Chemistry strategy: How to score high in Chemistry for JEE...",
@@ -58,15 +59,15 @@ const leftSidebar = [
 const rightSidebar = [
   {
     title: "XAT Exam 2026 — Important Updates",
-    img: "/src/assets/public/ew0V5jf.jpg",
+    img: hero1,
   },
   {
     title: "GMAT Focus Edition — Exam Pattern & Syllabus",
-    img: "/src/assets/public/ew0V5jf.jpg",
+    img: hero1,
   },
   {
     title: "Which MBA Entrance Exam Is the Hardest?",
-    img: "/src/assets/public/ew0V5jf.jpg",
+    img: hero1,
   },
 ];
 
@@ -84,13 +85,16 @@ export default function BlogSection({ showFilters = true }) {
     <>
       <style>{styles}</style>
 
-      {/* ✅ Same Dark Gradient Background Like Toppers */}
-      <section className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 py-16 px-4 text-white">
-        {/* Heading only on Blog Page */}
+      {/* MAIN SECTION – PURE BLACK BACKGROUND */}
+      <section
+        className="py-10 px-4 text-white"
+        style={{ background: "#000000" }}
+      >
+        {/* HEADING (BLOG PAGE) */}
         {showFilters && (
           <>
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-3">
-              Explore Latest Blogs
+            <h2 className="text-4xl font-extrabold text-center">
+              Explore Latest <span className="text-orange-500">Blogs</span>
             </h2>
             <p className="text-gray-300 text-center mb-10">
               Learn from IITians, IIM grads & industry experts
@@ -98,12 +102,13 @@ export default function BlogSection({ showFilters = true }) {
           </>
         )}
 
-        {/* ✅ Search + Filter */}
+        {/* SEARCH + FILTER */}
         {showFilters && (
           <div className="flex flex-col md:flex-row justify-between gap-4 items-center mb-10 max-w-7xl mx-auto">
+            {/* Search */}
             <div className="relative w-full md:w-1/2">
               <Search
-                className="absolute left-3 top-3 text-gray-300"
+                className="absolute left-3 top-3 text-gray-400"
                 size={20}
               />
               <input
@@ -111,7 +116,7 @@ export default function BlogSection({ showFilters = true }) {
                 placeholder="Search blog articles..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-gray-800 border border-gray-600 rounded-lg px-10 py-3 text-gray-200 focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full bg-black/40 border border-white rounded-lg px-10 py-3 text-gray-200 focus:ring-2 focus:ring-orange-500 transition outline-none"
               />
             </div>
 
@@ -123,8 +128,8 @@ export default function BlogSection({ showFilters = true }) {
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-4 py-2 rounded-full border text-sm transition ${
                     selectedCategory === cat
-                      ? "bg-blue-600 text-white border-blue-500"
-                      : "text-gray-300 border-gray-600 hover:bg-gray-700"
+                      ? "bg-orange-500 text-white border-orange-400"
+                      : "text-white border-orange-500/40 hover:bg-orange-500/20"
                   }`}
                 >
                   {cat}
@@ -134,52 +139,62 @@ export default function BlogSection({ showFilters = true }) {
           </div>
         )}
 
-        {/* ✅ Layout (Sidebar | Posts | Sidebar) */}
+        {/* BLOG PAGE FULL LAYOUT */}
         {showFilters ? (
-          <div className="grid grid-cols-1 md:grid-cols-[250px_1fr_250px] gap-6 max-w-7xl mx-auto">
-            {/* LEFT SIDEBAR */}
-            <aside className="hidden md:block sticky top-24 bg-gray-800/70 backdrop-blur-xl shadow-lg rounded-xl p-6 border border-gray-700">
-              <h3 className="font-bold text-xl mb-5 flex items-center gap-2 text-blue-400">
+          <div className="grid grid-cols-1 md:grid-cols-[260px_1fr_260px] gap-6 max-w-7xl mx-auto">
+            {/* LEFT SIDEBAR – CARD WITH RADIAL BACKGROUND */}
+            <aside
+              className="hidden md:block sticky top-24 rounded-xl p-6 backdrop-blur-xl shadow-[0_0_20px_rgba(255,122,0,0.15)] border border-orange-500/30"
+              style={{
+                background:
+                  "radial-gradient(144.43% 144.43% at 50% -25.21%, #392e29 0%, #000000 100%)",
+              }}
+            >
+              <h3 className="font-bold text-xl mb-5 flex items-center gap-2 text-orange-400">
                 <BookOpen size={18} /> MBA Colleges
               </h3>
 
               {leftSidebar.map((item, idx) => (
                 <p
                   key={idx}
-                  className="text-gray-300 hover:text-blue-400 cursor-pointer mb-3"
+                  className="text-gray-200 hover:text-orange-400 cursor-pointer mb-3 text-sm"
                 >
                   • {item}
                 </p>
               ))}
             </aside>
 
-            {/* CENTER SCROLLABLE BLOG FEED */}
+            {/* CENTER SCROLLABLE POSTS – CARDS WITH RADIAL BACKGROUND */}
             <div className="max-h-screen overflow-y-scroll custom-scrollbar space-y-6 pr-3">
               {filteredPosts.map((post, idx) => (
                 <article
                   key={idx}
-                  className="bg-gray-800/60 backdrop-blur-xl border border-gray-700 rounded-xl overflow-hidden shadow-xl hover:shadow-blue-900/40 hover:border-blue-600 transition"
+                  className="rounded-xl overflow-hidden backdrop-blur-xl shadow-[0_0_25px_rgba(255,122,0,0.20)]  transition border border-orange-500/30"
+                  style={{
+                    background:
+                      "radial-gradient(144.43% 144.43% at 50% -25.21%, #392e29 0%, #000000 100%)",
+                  }}
                 >
                   <img src={post.img} className="w-full h-56 object-cover" />
 
                   <div className="p-5">
-                    <span className="bg-blue-600 text-white px-3 py-1 text-xs rounded-full">
+                    <span className="bg-orange-500 text-black px-3 py-1 text-xs rounded-full font-semibold">
                       {post.category}
                     </span>
 
-                    <h4 className="text-xl font-semibold mt-3 hover:text-blue-400 cursor-pointer">
+                    <h4 className="text-xl font-semibold mt-3 hover:text-orange-400 cursor-pointer">
                       {post.title}
                     </h4>
 
-                    <p className="text-gray-400 text-sm mt-1">
+                    <p className="text-gray-300 text-sm mt-1">
                       {post.author} • {post.date}
                     </p>
 
-                    <p className="text-gray-300 text-sm mt-3">{post.excerpt}</p>
+                    <p className="text-gray-200 text-sm mt-3">{post.excerpt}</p>
 
                     <Link
                       to={`/blog/${post.slug}`}
-                      className="inline-flex items-center gap-2 mt-4 text-blue-400 font-medium"
+                      className="inline-flex items-center gap-2 mt-4 text-orange-400 font-medium"
                     >
                       Read More <ExternalLink size={14} />
                     </Link>
@@ -188,9 +203,15 @@ export default function BlogSection({ showFilters = true }) {
               ))}
             </div>
 
-            {/* RIGHT SIDEBAR */}
-            <aside className="hidden md:block sticky top-24 bg-gray-800/70 backdrop-blur-xl shadow-lg rounded-xl p-6 border border-gray-700">
-              <h3 className="font-bold text-xl mb-5 text-blue-400">
+            {/* RIGHT SIDEBAR – CARD WITH RADIAL BACKGROUND */}
+            <aside
+              className="hidden md:block sticky top-24 rounded-xl p-6 backdrop-blur-xl shadow-[0_0_20px_rgba(255,122,0,0.15)] border border-orange-500/30"
+              style={{
+                background:
+                  "radial-gradient(144.43% 144.43% at 50% -25.21%, #392e29 0%, #000000 100%)",
+              }}
+            >
+              <h3 className="font-bold text-xl mb-5 text-orange-400">
                 Related Reads
               </h3>
 
@@ -200,38 +221,43 @@ export default function BlogSection({ showFilters = true }) {
                     src={item.img}
                     className="rounded-lg group-hover:scale-105 transition duration-300 object-cover h-24 w-full"
                   />
-                  <p className="text-gray-300 group-hover:text-blue-400 mt-2 text-sm">
+                  <p className="text-gray-200 group-hover:text-orange-400 mt-2 text-sm">
                     {item.title}
                   </p>
                 </div>
               ))}
+
               <button
-                className="mt-2 w-full py-2 text-sm border border-green-500 text-green-400 rounded-lg 
-hover:bg-green-600 hover:text-white hover:border-green-600 transition font-semibold flex items-center justify-center gap-1"
+                className="mt-2 w-full py-2 text-sm border border-orange-500 text-orange-400 rounded-lg 
+                hover:bg-orange-500 hover:text-black transition font-semibold flex items-center justify-center gap-1"
               >
                 View More <ArrowRight size={14} />
               </button>
             </aside>
           </div>
         ) : (
-          /* HOME PAGE VERSION */
-          <div className="max-w-6xl mx-auto text-center mt-14">
+          /* HOME PAGE VERSION (MINI) – CARDS WITH RADIAL BACKGROUND */
+          <div className="max-w-6xl mx-auto text-center mt-4">
             <h2 className="text-3xl font-extrabold mb-6 text-white">
-              Latest from Blog
+              Latest from <span className="text-orange-500">Blog</span>
             </h2>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {postsData.slice(0, 3).map((post, idx) => (
                 <article
                   key={idx}
-                  className="bg-gray-800/60 backdrop-blur-xl rounded-xl shadow-xl border border-gray-700 overflow-hidden hover:border-blue-500 hover:shadow-blue-900 transition"
+                  className="rounded-xl shadow-xl border border-orange-500/30 overflow-hidden hover:shadow-orange-600/30 transition"
+                  style={{
+                    background:
+                      "radial-gradient(144.43% 144.43% at 50% -25.21%, #392e29 0%, #000000 100%)",
+                  }}
                 >
                   <img src={post.img} className="w-full h-40 object-cover" />
                   <div className="p-4 text-left">
-                    <h4 className="text-lg font-semibold text-white hover:text-blue-400 transition">
+                    <h4 className="text-lg font-semibold text-white hover:text-orange-400 transition">
                       {post.title}
                     </h4>
-                    <p className="text-gray-300 text-sm mt-1 line-clamp-2">
+                    <p className="text-gray-200 text-sm mt-1 line-clamp-2">
                       {post.excerpt}
                     </p>
                   </div>
@@ -241,7 +267,7 @@ hover:bg-green-600 hover:text-white hover:border-green-600 transition font-semib
 
             <a
               href="/blog"
-              className="inline-block mt-10 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+              className="inline-block mt-10 bg-orange-500 text-black px-6 py-3 rounded-lg hover:bg-orange-600 transition font-semibold"
             >
               View All Blogs →
             </a>

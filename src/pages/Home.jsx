@@ -118,25 +118,6 @@ function Slider() {
             </div>
           </motion.div>
         </AnimatePresence>
-
-        {/* ✅ Navigation Arrows */}
-        {/* <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-900 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button> */}
-
-        {/* <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-900 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </button> */}
       </div>
 
       {/* ✅ Dots Indicator */}
@@ -269,103 +250,103 @@ export default function Home() {
         <div className="relative z-10 px-4 py-12 sm:py-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:py-20 xl:py-16 lg:grid lg:grid-cols-2">
           <div className="lg:pr-8">
             <div className="max-w-md mx-auto sm:max-w-lg lg:mx-0 ">
-            <div className="md:block hidden">
-              <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-                Crack CAT with India's
-                <span className="inline">
-                  <img
-                    className="inline w-auto h-8 sm:h-10 lg:h-12"
-                    src="https://landingfoliocom.imgix.net/store/collection/clarity-blog/images/hero/4/shape-1.svg"
-                    alt="shape-1"
+              <div className="md:block hidden">
+                <h1 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+                  Crack CAT with India's
+                  <span className="inline">
+                    <img
+                      className="inline w-auto h-8 sm:h-10 lg:h-12"
+                      src="https://landingfoliocom.imgix.net/store/collection/clarity-blog/images/hero/4/shape-1.svg"
+                      alt="shape-1"
+                    />
+                  </span>{" "}
+                  Best Online Coaching
+                  <span className="inline">
+                    <img
+                      className="inline w-auto h-8 sm:h-10 lg:h-11"
+                      src="https://landingfoliocom.imgix.net/store/collection/clarity-blog/images/hero/4/shape-2.svg"
+                      alt="shape-2"
+                    />
+                  </span>
+                </h1>
+
+                <p className="mt-6 text-base font-normal leading-7 text-white">
+                  Join India's most trusted CAT Online Coaching Platform with
+                  24x7 doubt-solving, live classes from IIM alumni, and
+                  structured study plans tailored for CAT, XAT, NMAT & more.
+                </p>
+
+                <svg
+                  className="w-auto h-4 mt-8 text-gray-300"
+                  viewBox="0 0 172 16"
+                  fill="none"
+                  stroke="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line
+                    y1="-0.5"
+                    x2="18.0278"
+                    y2="-0.5"
+                    transform="matrix(-0.5547 0.83205 0.83205 0.5547 11 1)"
                   />
-                </span>{" "}
-                Best Online Coaching
-                <span className="inline">
-                  <img
-                    className="inline w-auto h-8 sm:h-10 lg:h-11"
-                    src="https://landingfoliocom.imgix.net/store/collection/clarity-blog/images/hero/4/shape-2.svg"
-                    alt="shape-2"
+                  <line
+                    y1="-0.5"
+                    x2="18.0278"
+                    y2="-0.5"
+                    transform="matrix(-0.5547 0.83205 0.83205 0.5547 46 1)"
                   />
-                </span>
-              </h1>
+                  <line
+                    y1="-0.5"
+                    x2="18.0278"
+                    y2="-0.5"
+                    transform="matrix(-0.5547 0.83205 0.83205 0.5547 81 1)"
+                  />
+                  <line
+                    y1="-0.5"
+                    x2="18.0278"
+                    y2="-0.5"
+                    transform="matrix(-0.5547 0.83205 0.83205 0.5547 116 1)"
+                  />
+                  <line
+                    y1="-0.5"
+                    x2="18.0278"
+                    y2="-0.5"
+                    transform="matrix(-0.5547 0.83205 0.83205 0.5547 151 1)"
+                  />
+                </svg>
 
-              <p className="mt-6 text-base font-normal leading-7 text-white">
-                Join India's most trusted CAT Online Coaching Platform with 24x7
-                doubt-solving, live classes from IIM alumni, and structured
-                study plans tailored for CAT, XAT, NMAT & more.
-              </p>
+                <p className="mt-8 text-base font-bold text-transparent bg-clip-text bg-[linear-gradient(90deg,#E16B3A,#B14820)]">
+                  Subscribe for Free CAT Preparation Tips & Updates
+                </p>
 
-              <svg
-                className="w-auto h-4 mt-8 text-gray-300"
-                viewBox="0 0 172 16"
-                fill="none"
-                stroke="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <line
-                  y1="-0.5"
-                  x2="18.0278"
-                  y2="-0.5"
-                  transform="matrix(-0.5547 0.83205 0.83205 0.5547 11 1)"
-                />
-                <line
-                  y1="-0.5"
-                  x2="18.0278"
-                  y2="-0.5"
-                  transform="matrix(-0.5547 0.83205 0.83205 0.5547 46 1)"
-                />
-                <line
-                  y1="-0.5"
-                  x2="18.0278"
-                  y2="-0.5"
-                  transform="matrix(-0.5547 0.83205 0.83205 0.5547 81 1)"
-                />
-                <line
-                  y1="-0.5"
-                  x2="18.0278"
-                  y2="-0.5"
-                  transform="matrix(-0.5547 0.83205 0.83205 0.5547 116 1)"
-                />
-                <line
-                  y1="-0.5"
-                  x2="18.0278"
-                  y2="-0.5"
-                  transform="matrix(-0.5547 0.83205 0.83205 0.5547 151 1)"
-                />
-              </svg>
-
-              <p className="mt-8 text-base font-bold text-transparent bg-clip-text bg-[linear-gradient(90deg,#E16B3A,#B14820)]">
-                Subscribe for Free CAT Preparation Tips & Updates
-              </p>
-
-
-              <form action="#" method="post" className="relative mt-4">
-                <div className="absolute transitiona-all duration-1000 opacity-30 inset-0  rounded-xl blur-lg filter group-hover:opacity-100 group-hover:duration-200"></div>
-                <div className="relative space-y-4 sm:flex sm:space-y-0 sm:items-end">
-                  <div className="flex-1">
-                    <label htmlFor="email" className="sr-only">
-                      Email address
-                    </label>
-                    <div>
-                      <input
-                        type="email"
-                        id="email"
-                        className="block w-full px-4 py-3 sm:py-3.5 text-base font-medium text-gray-900 placeholder-gray-300 border border-gray-300 rounded-lg sm:rounded-l-lg sm:rounded-r-none sm:text-sm focus:ring-gray-900 focus:border-gray-900"
-                        placeholder="Enter your email"
-                      />
+                <form action="#" method="post" className="relative mt-4">
+                  <div className="absolute transitiona-all duration-1000 opacity-30 inset-0  rounded-xl blur-lg filter group-hover:opacity-100 group-hover:duration-200"></div>
+                  <div className="relative space-y-4 sm:flex sm:space-y-0 sm:items-end">
+                    <div className="flex-1">
+                      <label htmlFor="email" className="sr-only">
+                        Email address
+                      </label>
+                      <div>
+                        <input
+                          type="email"
+                          id="email"
+                          className="block w-full px-4 py-3 sm:py-3.5 text-base font-medium text-gray-900 placeholder-gray-300 border border-gray-300 rounded-lg sm:rounded-l-lg sm:rounded-r-none sm:text-sm focus:ring-gray-900 focus:border-gray-900"
+                          placeholder="Enter your email"
+                        />
+                      </div>
                     </div>
+                    <button
+                      type="button"
+                      className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 sm:text-sm text-base sm:py-3.5 font-semibold text-white transition-all duration-200  bg-[linear-gradient(90deg,#E16B3A,#B14820)] border border-transparent rounded-lg sm:rounded-r-lg sm:rounded-l-none hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                    >
+                      Join Now
+                    </button>
                   </div>
-                  <button
-                    type="button"
-                    className="inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 sm:text-sm text-base sm:py-3.5 font-semibold text-white transition-all duration-200  bg-[linear-gradient(90deg,#E16B3A,#B14820)] border border-transparent rounded-lg sm:rounded-r-lg sm:rounded-l-none hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-                  >
-                    Join Now
-                  </button>
-                </div>
-              </form>
-              
+                </form>
               </div>
-              <div className="md:hidden flex flex-row justify-center text-center text-3xl text-white  ">Start Your Journey</div>
+              <div className="md:hidden flex flex-row justify-center text-center text-3xl text-white  ">
+                Start Your Journey
+              </div>
             </div>
           </div>
         </div>
@@ -380,8 +361,8 @@ export default function Home() {
       {/* ✅ REST OF YOUR SECTIONS */}
       <div>
         {/* Your other sections remain the same */}
-         <SeparatorLine />
-        <WhatWeDeliver/>
+        <SeparatorLine />
+        <WhatWeDeliver />
         <TestimonialsSection />
         <SeparatorLine />
         <ToppersSection />
