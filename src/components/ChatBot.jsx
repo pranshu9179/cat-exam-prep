@@ -231,9 +231,9 @@ export default function ChatBot() {
               1
             </span>
           </button>
-          <div className="absolute bottom-20 right-0 bg-white px-4 py-2 rounded-lg shadow-lg text-sm whitespace-nowrap animate-bounce">
+          {/* <div className="absolute bottom-20 right-0 bg-white px-4 py-2 rounded-lg shadow-lg text-sm whitespace-nowrap animate-bounce">
             Need help? Chat with CLara! 👋
-          </div>
+          </div> */}
         </div>
       )}
 

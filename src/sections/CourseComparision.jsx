@@ -46,11 +46,11 @@ export default function CourseComparison() {
   };
 
   return (
-    <section className="bg-black py-10 px-4 md:px-24 overflow-hidden ">
+    <section className="bg-black py-10 -mt-10 px-4 md:px-24 overflow-hidden ">
       {/* TITLE */}
       <h2
         className="
-          text-center mb-6 text-3xl md:text-4xl font-extrabold 
+          text-center mb-6 text-2xl mt-6 md:text-4xl font-extrabold 
           bg-clip-text text-transparent 
           bg-[linear-gradient(90deg,#E16B3A,#B14820)]
         "

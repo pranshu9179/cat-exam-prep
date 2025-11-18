@@ -344,15 +344,15 @@ export default function Home() {
                   </div>
                 </form>
               </div>
-              <div className="md:hidden flex flex-row justify-center text-center text-3xl text-white  ">
+              {/* <div className="md:hidden flex flex-row justify-center text-center text-3xl text-white  ">
                 Start Your Journey
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
 
         {/* ✅ RIGHT SIDE - CHOOSE ONE SLIDER VERSION */}
-        <div className="pb-8 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:flex lg:items-center lg:pb-0 lg:pr-8">
+        <div className="pb-8 md:mt-o -mt-16 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:flex lg:items-center lg:pb-0 lg:pr-8">
           <Slider />
           {/* <CardSlider /> */}
         </div>

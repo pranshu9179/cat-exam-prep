@@ -87,7 +87,11 @@ export default function ContactUs() {
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-snug">
-                Find a <span className="text-orange-400">center</span> near you
+                Find a{" "}
+                <span className="bg-[linear-gradient(90deg,#E16B3A,#B14820)] bg-clip-text text-transparent">
+                  Center
+                </span>{" "}
+                near you
               </h1>
 
               <p className="text-gray-300 mb-8 text-lg">
